@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Detalhes da Reserva
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Detalhe da Reserva</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{reserva.nome_empresa}}</h5>
+            <p class="card-text">{{reserva.categoria_empresa}}</p>
+            <p class="card-text"><small class="text-muted">{{reserva.cnpj}}</small></p>
+            <p class="card-text"><small class="text-muted">{{reserva.quitado}}</small></p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Reservas{% endblock %}
+
+{% block content %}
+<div class="mt-5">
+    <h2>Lista de Reservas</h2>
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">CNPJ</th>
+                <th scope="col">Quitado</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reserva in reservas %}
+            <tr>
+                <td>{{ reserva.nome_empresa }}</td>
+                <td>{{ reserva.categoria_empresa }}</td>
+                <td>{{ reserva.cnpj }}</td>
+                <td>{{ reserva.quitado }}</td>
+                <td>
+                    <a href="{% url 'reserva_detalhar' id=reserva.id %}"><i class="fas fa-edit"></i>Detalhar</a>
+                    <a href="{% url 'reserva_remover' id=reserva.id %}"><i class="fas fa-trash-alt"></i>Remover</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="mb-3">
+        <a href="{% url 'reserva_criar' %}" class="btn btn-primary">Adicionar Nova</a>
+    </div>
+</div>
+{% endblock %}
